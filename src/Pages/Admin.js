@@ -3,11 +3,10 @@ import { useDispatch, useSelector } from 'react-redux'
 import { useFeedback } from '../Components/Hooks/useFeedback'
 import { selectUserReducer } from '../Reducers/selectors'
 import DrawerContainer from '../Components/Drawer/DrawerContainer'
-import { loginThunk, logOut } from '../Actions/user.actions'
+import { loginThunk } from '../Actions/user.actions'
 import { auth } from '../firebase'
 import history from '../history'
 
-const DanceClass = React.lazy(() => import('../Components/TableHOC/DanceClass'))
 const Course = React.lazy(() => import('../Components/TableHOC/Course'))
 const Analytics = React.lazy(() => import('../Components/DashBoard/DashBoard'))
 const Student = React.lazy(() => import('../Components/TableHOC/Student'))
