@@ -9,7 +9,7 @@ import history from "../../history"
 import MenuIcon from '@material-ui/icons/Menu';
 import SettingsIcon from '@material-ui/icons/Settings';
 /*******/
-import { MobileMenu, AccountMenu } from "./Menus"
+import { AccountMenu } from "./Menus"
 
 export const useStyles = makeStyles((theme) => ({
     appBar: {

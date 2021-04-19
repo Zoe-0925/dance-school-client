@@ -1,5 +1,4 @@
 import { createSelector } from 'reselect'
-import { sortByIndex } from '../Components/Util'
 
 export const selectUserReducer = state => state.UserReducer
 

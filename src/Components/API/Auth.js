@@ -3,7 +3,7 @@ import { createHeader } from '../Util'
 import { auth } from '../../firebase'
 import firebase from 'firebase/app'
 
-const base = process.env.REACT_APP_API_BASE
+const base = process.env.REACT_APP_API_BASE + "/"
 
 export const handleFirebaseError = error => {
   var errorCode = error.code

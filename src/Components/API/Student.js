@@ -1,7 +1,7 @@
 import axios from 'axios'
 import { createHeader } from '../Util'
 
-const base = process.env.REACT_APP_API_BASE
+const base = process.env.REACT_APP_API_BASE + "/"
 
 export const fetchStudents = async (page = 1, token) =>
   (

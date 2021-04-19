@@ -23,31 +23,6 @@ export const useStyles = makeStyles((theme) => ({
     },
 }));
 
-export const MobileMenu = ({ toggleDrawer, handleSignOut }) => {
-    const classes = useStyles();
-    const { anchorEl, isOpen, handleMenuClose, handleMenuOpen } = useDotIconMenu()
-
-    return (
-        <Fragment>
-            <div className={classes.sectionMobile}>
-                <IconButton
-                    aria-label="show more"
-                    aria-controls={uuidv4()}
-                    aria-haspopup="true"
-                    onClick={toggleDrawer}
-                    color="inherit"
-                >
-                    <MoreIcon />
-                </IconButton>
-            </div>
-            <DropDownMenu anchorEl={anchorEl} isOpen={isOpen} handleMenuClose={handleMenuClose} >
-                <MenuItem onClick={handleMenuOpen}>
-                    <AccountMenu handleSignOut={handleSignOut} />
-                </MenuItem>
-            </DropDownMenu>
-        </Fragment>
-    )
-}
 
 export const AccountMenu = ({ handleSignOut }) => {
     const classes = useStyles();
