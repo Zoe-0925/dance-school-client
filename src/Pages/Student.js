@@ -26,7 +26,21 @@ const Student = () => {
   const token = account ? account.token : ''
   const membership = account ? account.membership : ''
 
-  console.log("role", role)
+  useEffect(() => {
+    if (!auth.currentUser) {
+      dispatch(
+        loginThunk({
+          email: process.env.REACT_APP_STUDENT_EMAIL,
+          password: process.env.REACT_APP_STUDENT_PASSWORD
+        })
+      ).catch(err => {
+        alert(err)
+        history.push('/auth')
+      })
+    }
+    // eslint-disable-next-line
+  }, [])
+
 
   const {
     open,

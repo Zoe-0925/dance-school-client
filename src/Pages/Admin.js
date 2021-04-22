@@ -19,7 +19,7 @@ const Admin = () => {
   const dispatch = useDispatch()
   const [currentPage, setPage] = useState('Analytics')
   const [counts, setCounts] = useState()
- 
+
   const account = useSelector(selectUserReducer)
   const token = account.token
   const role = account.role

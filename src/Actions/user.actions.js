@@ -36,6 +36,7 @@ export const loginThunk = data => async dispatch => {
     email: data.email,
     password: data.password
   })
+  console.log("account", account)
   if (account && account.role === 'admin') {
     dispatch({
       type: LOGIN,
@@ -62,11 +63,13 @@ export const loginThunk = data => async dispatch => {
 }
 
 export const signUpThunk = data => async dispatch => {
+  console.log('data', data)
   const account = await fetchSignUp({
     email: data.email,
     password: data.password,
     userName: data.userName
   })
+  console.log('account', account)
   if (account) {
     dispatch({
       type: SIGNUP,

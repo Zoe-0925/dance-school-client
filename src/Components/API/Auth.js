@@ -18,14 +18,13 @@ export const handleFirebaseError = error => {
 
 export const fetchLogin = async data => {
   try {
-    console.log("data", data)
+    console.log('data', data)
     await auth.signInWithEmailAndPassword(data.email, md5(data.password))
     return await getRoleAndToken()
   } catch (error) {
     handleFirebaseError(error)
   }
 }
-
 
 export const fetchSignUp = async data => {
   try {

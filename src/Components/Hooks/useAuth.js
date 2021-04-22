@@ -15,6 +15,7 @@ export const useAuth = () => {
   }
 
   const signUp = async value => {
+    console.log("value", value)
     const account = await dispatch(signUpThunk(value))
     if (account && account.role) {
       await dispatch(loginThunk(account))
