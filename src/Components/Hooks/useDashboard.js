@@ -3,18 +3,21 @@ import { fetchAnalytics } from '../API/Analytics'
 
 export const useDashboard = (token = '', role = '', handleCount) => {
   const [data, setData] = useState()
+  const [loading, setLoading] = useState(false)
 
   useEffect(() => {
     if (role === 'admin') {
+      setLoading(true)
       fetchAnalytics(token).then(result => {
         setData(result)
         handleCount({
           students: result.totalStudents,
           bookings: result.totalBookings,
           subscriptions: result.totalSubscriptions,
-          courses:result.totalCourses
+          courses: result.totalCourses
         })
       })
+      setLoading(false)
       return
     }
     // eslint-disable-next-line
@@ -37,5 +40,5 @@ export const useDashboard = (token = '', role = '', handleCount) => {
     // eslint-disable-next-line
   }, [data])
 
-  return { data }
+  return { data, loading }
 }

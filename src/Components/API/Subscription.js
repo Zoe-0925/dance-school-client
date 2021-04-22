@@ -3,7 +3,6 @@ import { createHeader } from '../Util'
 
 const base = process.env.REACT_APP_API_BASE + "/"
 
-
 export const fetchSubscriptions = async (page = 1, token) =>
   (
     await axios.get(

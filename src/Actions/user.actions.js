@@ -36,7 +36,6 @@ export const loginThunk = data => async dispatch => {
     email: data.email,
     password: data.password
   })
-console.log("account", account)
   if (account && account.role === 'admin') {
     dispatch({
       type: LOGIN,
@@ -46,7 +45,6 @@ console.log("account", account)
   }
   if (account && account.role === 'student') {
     const response = await fetchStudentByEmail(data.email, data.idToken)
-    console.log('student response', response)
     if (response.data) {
       dispatch({
         type: LOGIN,

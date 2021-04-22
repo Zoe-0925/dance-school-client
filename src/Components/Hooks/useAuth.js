@@ -9,7 +9,6 @@ export const useAuth = () => {
 
   const login = async value => {
     const account = await dispatch(loginThunk(value))
-    console.log('account', account)
     if (account && account.role) {
       history.push('/' + account.role)
     }
@@ -17,7 +16,6 @@ export const useAuth = () => {
 
   const signUp = async value => {
     const account = await dispatch(signUpThunk(value))
-    console.log("account", account)
     if (account && account.role) {
       await dispatch(loginThunk(account))
       history.push('/' + account.role)

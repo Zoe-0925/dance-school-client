@@ -1,5 +1,4 @@
 import React, { Fragment } from 'react';
-import { v4 as uuidv4 } from 'uuid'
 import {
   MenuItem, Divider, IconButton,
 } from '@material-ui/core'
@@ -8,8 +7,6 @@ import { makeStyles } from '@material-ui/core/styles';
 import { useDotIconMenu } from "../Hooks/useDotIconMenu"
 import { DropDownMenu } from "../Buttons/IconButtons"
 import AccountCircle from '@material-ui/icons/AccountCircle';
-import MoreIcon from '@material-ui/icons/MoreVert';
-
 
 export const useStyles = makeStyles((theme) => ({
     menuButton: {

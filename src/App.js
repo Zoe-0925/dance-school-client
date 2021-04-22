@@ -10,7 +10,6 @@ import Student from './Pages/Student'
 import './assets/stylesheets/main.scss'
 import history from './history'
 import ErrorBoundary from './ErrorBoundary'
-import Course from './Components/TableHOC/Course'
 
 const App = () => {
   return (

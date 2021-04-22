@@ -76,6 +76,15 @@ const SignUpFormWithFormik = withFormik({
     if (!values.password || values.password === '') {
       errors.password = 'Required'
     }
+    if (
+      values.passord &&
+      !values.password.match(
+        '^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[*.!@$%^&(){}[]:;<>,.?/~_+-=|]).{8,32}$'
+      )
+    ) {
+      errors.password =
+        'The password must be at least 8 digits with 1 number, 1 alphabet and 1 special character'
+    }
     return errors
   },
   handleSubmit: (values, { props: { onContinue } }) => {

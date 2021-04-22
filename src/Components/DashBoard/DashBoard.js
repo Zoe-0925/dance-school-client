@@ -3,6 +3,7 @@ import { Row, Col } from 'reactstrap'
 import { v4 as uuidv4 } from 'uuid'
 import { useDashboard } from '../Hooks/useDashboard'
 import DashboardCard from '../Card/DashboardCard'
+import DashboardSkeleton from "./DashboardSkeleton"
 import GroupIcon from '@material-ui/icons/Group'
 import { makeStyles } from '@material-ui/core/styles'
 import { deepOrange, deepPurple } from '@material-ui/core/colors'
@@ -38,12 +39,13 @@ const Line = ({ content }) => (
 )
 
 const DashBoard = ({ token = '', role = '', handleCount }) => {
-  const { data } = useDashboard(token, role, handleCount)
+  const { data, loading } = useDashboard(token, role, handleCount)
   const classes = useStyles()
 
   return (
     <div>
-      {data && (
+    {loading && <DashboardSkeleton/>}
+      {!loading && data && (
         <>
           <div className='card-list'>
             <DashboardCard

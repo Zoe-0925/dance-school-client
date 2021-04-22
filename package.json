@@ -19,6 +19,7 @@
     "formik-material-ui": "^3.0.0-alpha.0",
     "i": "^0.3.6",
     "material-ui-search-bar": "^1.0.0",
+    "md5": "^2.3.0",
     "node-sass": "^4.14.1",
     "npm": "^7.6.3",
     "react": "^16.13.1",

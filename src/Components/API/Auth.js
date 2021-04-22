@@ -2,8 +2,9 @@ import axios from 'axios'
 import { createHeader } from '../Util'
 import { auth } from '../../firebase'
 import firebase from 'firebase/app'
+import md5 from 'md5'
 
-const base = process.env.REACT_APP_API_BASE + "/"
+const base = process.env.REACT_APP_API_BASE + '/'
 
 export const handleFirebaseError = error => {
   var errorCode = error.code
@@ -17,18 +18,20 @@ export const handleFirebaseError = error => {
 
 export const fetchLogin = async data => {
   try {
-    await auth.signInWithEmailAndPassword(data.email, data.password)
+    console.log("data", data)
+    await auth.signInWithEmailAndPassword(data.email, md5(data.password))
     return await getRoleAndToken()
   } catch (error) {
     handleFirebaseError(error)
   }
 }
 
+
 export const fetchSignUp = async data => {
   try {
     return await axios.post(
       base + 'Account/sign-up',
-      data,
+      { ...data, password: md5(data.password) },
       createHeader('sign up')
     ) //Send data to the backend to assign a "student" role
   } catch (error) {
@@ -43,7 +46,7 @@ export const getRoleAndToken = async () => {
   }
   const role =
     (await axios.post(base + 'Account/verify', { idToken: idToken })) || ''
-    console.log("role verified",role)
+  console.log('role verified', role)
   return { role: role.data, idToken: idToken }
 }
 
